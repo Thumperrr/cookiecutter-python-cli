@@ -14,7 +14,8 @@ setup(
     author_email='{{ cookiecutter.email }}',
     description='{{ cookiecutter.project_short_description }}',
     long_description=__doc__,
-    packages=find_packages(exclude=['tests']),
+    packages=find_packages('src'),
+    package_dir={'': 'src'},
     include_package_data=True,
     zip_safe=False,
     platforms='any',
@@ -35,14 +36,30 @@ setup(
         # 'Development Status :: 7 - Inactive',
         'Environment :: Console',
         'Intended Audience :: Developers',
+{%- if cookiecutter.license in ["BSD 2-Clause License", "BSD 3-Clause License"] %}
         'License :: OSI Approved :: BSD License',
+{%- elif cookiecutter.license == "MIT license" %}
+        'License :: OSI Approved :: MIT License',
+{%- elif cookiecutter.license == "ISC license" %}
+        'License :: OSI Approved :: ISC License (ISCL)',
+{%- elif cookiecutter.license == "Apache Software License 2.0" %}
+        'License :: OSI Approved :: Apache Software License',
+{%- endif %}
         'Operating System :: POSIX',
         'Operating System :: MacOS',
         'Operating System :: Unix',
         'Operating System :: Microsoft :: Windows',
         'Programming Language :: Python',
-        'Programming Language :: Python :: 2',
+        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7'
         'Topic :: Software Development :: Libraries :: Python Modules',
-    ]
+    ],
+    project_urls={
+            'Changelog': 'https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.repo_name }}/blob/master/CHANGELOG.rst',
+            'Issue Tracker': 'https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.repo_name }}/issues',
+        }
 )
