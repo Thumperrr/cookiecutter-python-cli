@@ -9,11 +9,27 @@ matrix:
     - python: '3.6'
       env:
         - TOXENV=check
-{%- for env in ['py27', 'py34', 'py35', 'py36', 'py37'] %}{{ '' }}
-    - python: '{{ "{0[2]}.{0[3]}".format(env) }}'
+    - python: '2.7'
       env:
-        - TOXENV={{ env }},report
-{%- endfor %}
+        - TOXENV=py27
+    - python: '3.4'
+      env:
+        - TOXENV=py34
+    - python: '3.5'
+      env:
+        - TOXENV=py35
+    - python: '3.6'
+      env:
+        - TOXENV=py36
+    - python: '3.7'
+      env:
+        - TOXENV=py37
+    - python: 'pypy'
+      env:
+        - TOXENV=pypy
+    - python: 'pypy3'
+      env:
+        - TOXENV=pypy3
 before_install:
   - python --version
   - uname -a
