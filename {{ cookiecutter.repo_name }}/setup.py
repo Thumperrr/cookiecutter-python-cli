@@ -1,7 +1,8 @@
 """
 {{ cookiecutter.project_short_description }}
 """
-from setuptools import find_packages, setup
+from setuptools import find_packages
+from setuptools import setup
 
 dependencies = ['click']
 
@@ -9,7 +10,7 @@ setup(
     name='{{ cookiecutter.pypi_name }}',
     version='{{ cookiecutter.version }}',
     url='https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.repo_name }}',
-    license='BSD',
+    license={%- if cookiecutter.license in ["BSD 2-Clause License", "BSD 3-Clause License"] %}'BSD',{%- elif cookiecutter.license == "MIT license" %}'MIT',{%- elif cookiecutter.license == "ISC license" %}'ISC',{%- elif cookiecutter.license == "Apache Software License 2.0" %}'Apache',{%- endif %}
     author='{{ cookiecutter.full_name }}',
     author_email='{{ cookiecutter.email }}',
     description='{{ cookiecutter.project_short_description }}',

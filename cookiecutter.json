@@ -1,6 +1,6 @@
 {
     "full_name": "Steve Hall",
-    "email": "hallsb808@gmail.com",
+    "email": "email@gmail.com",
     "github_username": "thumperrr",
     "project_name": "My Tool",
     "repo_name": "python-{{ cookiecutter.project_name|lower|replace(' ', '') }}",
@@ -12,22 +12,6 @@
     "year": "2019",
     "version": "0.1.0",
     "license": ["BSD 2-Clause License", "BSD 3-Clause License", "MIT license", "ISC license", "Apache Software License 2.0"],
-    "year_from": [
-        "2019",
-        "2018",
-        "2017",
-        "2016",
-        "2015",
-        "2014",
-        "2013",
-        "2012",
-        "2011",
-        "2010",
-        "2009",
-        "2008",
-        "2007",
-        "2006",
-        "2005"
-    ],
+    "year_from": "{% now 'utc', '%Y' %}",
     "year_to": "{% now 'utc', '%Y' %}"
 }
